@@ -1,5 +1,2 @@
 streamlit
-setuptools
-numpy==1.19.2
-Pillow
 tensorflow

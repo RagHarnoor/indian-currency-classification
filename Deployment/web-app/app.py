@@ -8,7 +8,7 @@ import ast, os
 
 
 st.title("Indian Currency Classifier")
-st.header("Classifies types of Indian Currency 10,20,50,100,200,500.2000")
+st.header("Classifies types of Indian Currency 10,20,50,100,200,500,2000")
 st.text("Provide image and path of Indian Currency note")
 
 model = load_model('currency_mobilenetmodel.h5')
@@ -109,6 +109,8 @@ if uploaded_file is not None:
     #     st.write("This is ", s," rupees note")
 
     st.write("The image uploaded is \n", list(final_result_classification.keys())[0])
-    st.write("The image validation is \n", list(final_result_validation.keys())[0])
+    st.write("The image validation is \n", (final_result_validation))
+    if list(final_result_classification.keys())[0]!= 'invalid' and list(final_result_validation.keys())[0] == 'yes_watermark':
+        st.write("The uploaded currency is original")
 
 

@@ -17,8 +17,8 @@ labels = f.read()
 labels = ast.literal_eval(labels)
 final_labels = {v: k for k, v in labels.items()}
 
-model_watermark = load_model('watermark_mobilenetmodel.h5')
-f_w = open("mobilenet_watermark_class_indices.txt", "r")
+model_watermark = load_model('keras_model.h5')
+f_w = open("labels.txt", "r")
 labels_w = f_w.read()
 labels_w = ast.literal_eval(labels_w)
 final_labels_w = {v: k for k, v in labels_w.items()}
@@ -109,8 +109,13 @@ if uploaded_file is not None:
     #     st.write("This is ", s," rupees note")
 
     st.write("The image uploaded is \n", list(final_result_classification.keys())[0])
-    st.write("The image validation is \n", (final_result_validation))
-    if list(final_result_classification.keys())[0]!= 'invalid' and list(final_result_validation.keys())[0] == 'yes_watermark':
-        st.write("The uploaded currency is original")
+    # if list(final_result_classification.keys())[0]!= 'invalid':
+    #    st.write("The image validation is \n", (final_result_validation))
+    # else: 
+    #     st.write("please provide a valid image") 
+    
+    # if list(final_result_classification.keys())[0]!= 'invalid' and list(final_result_validation.keys())[0] == 'yes_watermark':
+    #     st.write("The uploaded currency is original")
+    st.write("Result: The uploaded image is \n", list(final_result_validation.keys())[0])
 
 
